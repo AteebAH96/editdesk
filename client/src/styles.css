@@ -1,66 +1,66 @@
 /* EditDesk — Clean Minimal (Apple-inspired). Hand-written CSS, no frameworks. */
 
 :root {
-  /* Light theme (default) */
-  --bg: #f5f5f7;
+  /* Light theme (default) — Powder Blue */
+  --bg: #f5f8fc;
   --bg-elevated: #ffffff;
   --surface: #ffffff;
-  --surface-hover: #f5f5f7;
-  --border: #e5e5ea;
-  --border-strong: #d2d2d7;
-  --text: #1d1d1f;
-  --muted: #6e6e73;
-  --accent: #0071e3;
-  --accent-hover: #0077ed;
-  --accent-soft: rgba(0, 113, 227, 0.07);
-  --accent-ring: rgba(0, 113, 227, 0.16);
+  --surface-hover: #edf4fb;
+  --border: rgba(66, 106, 156, 0.16);
+  --border-strong: rgba(66, 106, 156, 0.28);
+  --text: #253349;
+  --muted: #61728a;
+  --accent: #426a9c;
+  --accent-hover: #3b6593;
+  --accent-soft: rgba(66, 106, 156, 0.08);
+  --accent-ring: rgba(66, 106, 156, 0.18);
   --success-bg: #e7f6ec;
   --success: #1d8127;
   --warning-bg: #fef3e0;
   --warning: #9a6200;
   --info-bg: #e8f1fe;
-  --info: #0060cc;
+  --info: #3b6593;
   --review-bg: #f1eafb;
   --review: #7a3fd1;
   --danger-bg: #fdecea;
   --danger: #d70015;
   --danger-text: #d70015;
-  --navbar-bg: rgba(255, 255, 255, 0.72);
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 6px 20px rgba(0, 0, 0, 0.05);
-  --shadow-card-hover: 0 2px 6px rgba(0, 0, 0, 0.05), 0 14px 34px rgba(0, 0, 0, 0.09);
-  --shadow-btn: 0 1px 2px rgba(0, 90, 200, 0.28);
+  --navbar-bg: rgba(245, 248, 252, 0.78);
+  --shadow-card: 0 2px 8px rgba(37, 51, 73, 0.05), 0 8px 24px rgba(37, 51, 73, 0.07);
+  --shadow-card-hover: 0 2px 6px rgba(37, 51, 73, 0.06), 0 14px 34px rgba(37, 51, 73, 0.10);
+  --shadow-btn: 0 1px 2px rgba(66, 106, 156, 0.35);
   --radius: 14px;
   --radius-lg: 18px;
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Inter, "Segoe UI", system-ui, sans-serif;
 }
 
-/* Dark theme — activated via data-theme="dark" on <html> */
+/* Dark theme — "slate night", activated via data-theme="dark" on <html> */
 [data-theme="dark"] {
-  --bg: #1d1d1f;
-  --bg-elevated: #2d2d2f;
-  --surface: #2d2d2f;
-  --surface-hover: #3a3a3c;
-  --border: #3a3a3c;
-  --border-strong: #48484a;
-  --text: #f5f5f7;
-  --muted: #98989d;
-  --accent: #0a84ff;
-  --accent-hover: #409cff;
-  --accent-soft: rgba(10, 132, 255, 0.13);
-  --accent-ring: rgba(10, 132, 255, 0.28);
+  --bg: #111b29;
+  --bg-elevated: #1e2e42;
+  --surface: #1e2e42;
+  --surface-hover: #273a50;
+  --border: rgba(155, 191, 227, 0.18);
+  --border-strong: rgba(155, 191, 227, 0.3);
+  --text: #edf4fc;
+  --muted: #9aadc4;
+  --accent: #9bbfe3;
+  --accent-hover: #8eb8e5;
+  --accent-soft: rgba(155, 191, 227, 0.12);
+  --accent-ring: rgba(155, 191, 227, 0.28);
   --success-bg: rgba(48, 209, 88, 0.14);
   --success: #30d158;
   --warning-bg: rgba(255, 159, 10, 0.14);
   --warning: #ff9f0a;
-  --info-bg: rgba(10, 132, 255, 0.14);
-  --info: #64b5ff;
+  --info-bg: rgba(142, 184, 229, 0.14);
+  --info: #8eb8e5;
   --review-bg: rgba(191, 90, 242, 0.14);
   --review: #bf5af2;
   --danger-bg: rgba(255, 69, 58, 0.12);
   --danger: #ff6961;
   --danger-text: #ff6961;
-  --navbar-bg: rgba(29, 29, 31, 0.72);
-  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.35), 0 8px 24px rgba(0, 0, 0, 0.3);
+  --navbar-bg: rgba(17, 27, 41, 0.78);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.3);
   --shadow-card-hover: 0 2px 6px rgba(0, 0, 0, 0.4), 0 16px 40px rgba(0, 0, 0, 0.38);
   --shadow-btn: 0 1px 2px rgba(0, 0, 0, 0.45);
 }
@@ -203,7 +203,7 @@ p { margin: 0.45rem 0; line-height: 1.6; }
   height: 32px;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: #e9e9ee;
+  background: #dbe7f3;
   cursor: pointer;
   padding: 0;
   outline: none;
@@ -212,12 +212,12 @@ p { margin: 0.45rem 0; line-height: 1.6; }
 }
 
 .theme-switch:focus-visible {
-  box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.25);
+  box-shadow: 0 0 0 4px rgba(66, 106, 156, 0.25);
 }
 
 .theme-switch.is-dark {
-  background: #3a3a3f;
-  border-color: #48484e;
+  background: #2a3c55;
+  border-color: rgba(155, 191, 227, 0.3);
 }
 
 .theme-switch-icon {
@@ -235,7 +235,7 @@ p { margin: 0.45rem 0; line-height: 1.6; }
 .theme-switch-icon-sun { left: 8px; opacity: 1; }
 .theme-switch-icon-moon { right: 8px; opacity: 1; }
 .theme-switch.is-dark .theme-switch-icon-sun { opacity: 1; color: #ffffff; }
-.theme-switch:not(.is-dark) .theme-switch-icon-moon { opacity: 1; color: #1d1d1f; }
+.theme-switch:not(.is-dark) .theme-switch-icon-moon { opacity: 1; color: #253349; }
 
 .theme-switch-knob {
   position: absolute;
