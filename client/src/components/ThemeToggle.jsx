@@ -29,12 +29,14 @@ export default function ThemeToggle() {
   return (
     <button
       type="button"
-      className="btn btn-ghost btn-sm theme-toggle"
+      className={`theme-switch${theme === 'dark' ? ' is-dark' : ''}`}
       onClick={() => setTheme(next)}
       title={`Switch to ${next} mode`}
       aria-label={`Switch to ${next} mode`}
     >
-      <span aria-hidden="true">{theme === 'dark' ? '☀️' : '🌙'}</span>
+      <span className="theme-switch-icon theme-switch-icon-sun" aria-hidden="true">☀️</span>
+      <span className="theme-switch-icon theme-switch-icon-moon" aria-hidden="true">🌙</span>
+      <span className="theme-switch-knob" aria-hidden="true" />
     </button>
   );
 }
