@@ -7,9 +7,9 @@ function getInitialTheme() {
     const saved = window.localStorage.getItem(STORAGE_KEY);
     if (saved === 'light' || saved === 'dark') return saved;
   } catch {
-    /* storage unavailable — fall back to dark */
+    /* storage unavailable — fall back to light */
   }
-  return 'dark';
+  return 'light';
 }
 
 export default function ThemeToggle() {
