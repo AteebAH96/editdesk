@@ -29,6 +29,7 @@
   --shadow-card: 0 2px 8px rgba(37, 51, 73, 0.05), 0 8px 24px rgba(37, 51, 73, 0.07);
   --shadow-card-hover: 0 2px 6px rgba(37, 51, 73, 0.06), 0 14px 34px rgba(37, 51, 73, 0.10);
   --shadow-btn: 0 1px 2px rgba(66, 106, 156, 0.35);
+  --grid-color: rgba(66, 106, 156, 0.09);
   --radius: 14px;
   --radius-lg: 18px;
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", Inter, "Segoe UI", system-ui, sans-serif;
@@ -63,6 +64,7 @@
   --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.3);
   --shadow-card-hover: 0 2px 6px rgba(0, 0, 0, 0.4), 0 16px 40px rgba(0, 0, 0, 0.38);
   --shadow-btn: 0 1px 2px rgba(0, 0, 0, 0.45);
+  --grid-color: rgba(155, 191, 227, 0.07);
 }
 
 * {
@@ -435,6 +437,13 @@ textarea { resize: vertical; line-height: 1.55; }
   display: flex;
   justify-content: center;
   padding-top: 4rem;
+  padding-bottom: 4rem;
+  /* Subtle blueprint grid, like the portfolio hero — auth pages only */
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 36px 36px;
+  border-radius: var(--radius-lg);
 }
 .auth-card { width: 100%; max-width: 430px; padding: 2.25rem; }
 .auth-card h1 { font-size: 1.65rem; margin-bottom: 0.4rem; }
