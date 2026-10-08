@@ -605,3 +605,91 @@ textarea { resize: vertical; line-height: 1.55; }
   .message { max-width: 88%; }
   .page-head { margin-bottom: 1.5rem; }
 }
+
+/* ---------- Notification bell ---------- */
+
+.notif-wrap { position: relative; }
+
+.notif-bell {
+  position: relative;
+  font-size: 1.15rem;
+  line-height: 1;
+  padding: 0.45rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.notif-bell:hover { background: var(--surface-hover); }
+
+.notif-badge {
+  position: absolute;
+  top: 0;
+  right: -2px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #ff3b30;
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.notif-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 320px;
+  max-height: 380px;
+  overflow-y: auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card), 0 12px 32px rgba(0, 0, 0, 0.14);
+  z-index: 60;
+}
+
+.notif-dropdown-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.92rem;
+}
+
+.notif-dropdown-head a { color: var(--accent); font-size: 0.85rem; }
+
+.notif-empty { padding: 1.4rem 1.1rem; text-align: center; font-size: 0.9rem; }
+
+.notif-list { list-style: none; margin: 0; padding: 0.4rem; }
+
+.notif-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.7rem 0.8rem;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  color: var(--text);
+}
+
+.notif-item:hover { background: var(--surface-hover); }
+
+.notif-item-title { font-weight: 600; font-size: 0.92rem; }
+.notif-item-meta { font-size: 0.8rem; }
+
+@media (max-width: 640px) {
+  .notif-dropdown { width: 280px; }
+}
