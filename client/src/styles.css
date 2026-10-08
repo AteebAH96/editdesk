@@ -235,7 +235,7 @@ p { margin: 0.45rem 0; line-height: 1.6; }
 .theme-switch-icon-sun { left: 8px; opacity: 1; }
 .theme-switch-icon-moon { right: 8px; opacity: 1; }
 .theme-switch.is-dark .theme-switch-icon-sun { opacity: 1; color: #ffffff; }
-.theme-switch:not(.is-dark) .theme-switch-icon-moon { opacity: 0.35; }
+.theme-switch:not(.is-dark) .theme-switch-icon-moon { opacity: 1; color: #1d1d1f; }
 
 .theme-switch-knob {
   position: absolute;
