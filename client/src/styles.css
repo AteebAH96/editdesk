@@ -224,11 +224,13 @@ p { margin: 0.45rem 0; line-height: 1.6; }
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 0.85rem;
-  line-height: 1;
   pointer-events: none;
+  color: var(--muted);
   transition: opacity 0.25s ease;
+  display: flex;
 }
+
+.theme-switch-icon svg { width: 14px; height: 14px; }
 
 .theme-switch-icon-sun { left: 8px; opacity: 1; }
 .theme-switch-icon-moon { right: 8px; opacity: 1; }
@@ -612,17 +614,20 @@ textarea { resize: vertical; line-height: 1.55; }
 
 .notif-bell {
   position: relative;
-  font-size: 1.15rem;
   line-height: 1;
   padding: 0.45rem 0.6rem;
   border-radius: 999px;
   border: 1px solid transparent;
   background: transparent;
   cursor: pointer;
+  color: var(--text);
   transition: background-color 0.2s ease;
 }
 
 .notif-bell:hover { background: var(--surface-hover); }
+
+.notif-bell-icon { display: flex; }
+.notif-bell-icon svg { width: 20px; height: 20px; }
 
 .notif-badge {
   position: absolute;
