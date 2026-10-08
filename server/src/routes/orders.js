@@ -2,6 +2,7 @@ const express = require('express');
 const Order = require('../models/Order');
 const { ORDER_TYPES, ORDER_STATUSES, ALLOWED_TRANSITIONS } = require('../models/Order');
 const { authRequired, loadUser, requireRole } = require('../middleware/auth');
+const { notifyNewOrder } = require('../utils/notify');
 
 const router = express.Router();
 
@@ -82,6 +83,7 @@ router.post('/', async (req, res, next) => {
       client: req.userId,
     });
     await order.populate('client', 'name email');
+    notifyNewOrder(order); // email the admin (fire-and-forget)
     return res.status(201).json({ order });
   } catch (err) {
     return next(err);
