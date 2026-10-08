@@ -56,6 +56,9 @@ router.post('/', async (req, res, next) => {
     if (!title || !title.trim()) {
       return res.status(400).json({ error: 'Title is required' });
     }
+    if (!description || description.trim().length < 100) {
+      return res.status(400).json({ error: 'Description must be at least 100 characters long' });
+    }
     if (!ORDER_TYPES.includes(type)) {
       return res.status(400).json({ error: `Type must be one of: ${ORDER_TYPES.join(', ')}` });
     }
@@ -67,11 +70,12 @@ router.post('/', async (req, res, next) => {
     }
 
     let deadlineDate;
-    if (deadline) {
-      deadlineDate = new Date(deadline);
-      if (Number.isNaN(deadlineDate.getTime())) {
-        return res.status(400).json({ error: 'Deadline is not a valid date' });
-      }
+    if (!deadline) {
+      return res.status(400).json({ error: 'Deadline is required' });
+    }
+    deadlineDate = new Date(deadline);
+    if (Number.isNaN(deadlineDate.getTime())) {
+      return res.status(400).json({ error: 'Deadline is not a valid date' });
     }
 
     const order = await Order.create({

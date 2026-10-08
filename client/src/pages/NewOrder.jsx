@@ -77,14 +77,17 @@ export default function NewOrder() {
         </label>
 
         <label className="field">
-          <span>Description</span>
+          <span>Description <span className="muted small">(minimum 100 characters)</span></span>
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             rows={5}
+            required
+            minLength={100}
             maxLength={3000}
             placeholder="Style, mood, music direction, must-include shots, things to avoid…"
           />
+          <small className="muted">{description.trim().length}/100 characters</small>
         </label>
 
         <label className="field">
@@ -103,6 +106,7 @@ export default function NewOrder() {
             type="date"
             value={deadline}
             min={todayISO()}
+            required
             onChange={(e) => setDeadline(e.target.value)}
           />
         </label>
