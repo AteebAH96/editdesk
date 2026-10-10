@@ -2,6 +2,7 @@ const express = require('express');
 const Order = require('../models/Order');
 const { ORDER_TYPES, ORDER_STATUSES, ALLOWED_TRANSITIONS } = require('../models/Order');
 const { authRequired, loadUser, requireRole } = require('../middleware/auth');
+const { notifyNewOrder } = require('../utils/notify');
 
 const router = express.Router();
 
@@ -63,6 +64,9 @@ router.post('/', async (req, res, next) => {
     if (description != null && typeof description !== 'string') {
       return res.status(400).json({ error: 'Description must be text' });
     }
+    if (!description || description.trim().length < 100) {
+      return res.status(400).json({ error: 'Description must be at least 100 characters long' });
+    }
     if ((description || '').trim().length > 3000) {
       return res.status(400).json({ error: 'Description must be under 3000 characters' });
     }
@@ -74,11 +78,10 @@ router.post('/', async (req, res, next) => {
     }
 
     let deadlineDate;
-    if (deadline) {
-      deadlineDate = new Date(deadline);
-      if (Number.isNaN(deadlineDate.getTime())) {
-        return res.status(400).json({ error: 'Deadline is not a valid date' });
-      }
+    if (!deadline) return res.status(400).json({ error: 'Deadline is required' });
+    deadlineDate = new Date(deadline);
+    if (Number.isNaN(deadlineDate.getTime())) {
+      return res.status(400).json({ error: 'Deadline is not a valid date' });
     }
 
     const order = await Order.create({
@@ -90,6 +93,7 @@ router.post('/', async (req, res, next) => {
       client: req.userId,
     });
     await order.populate('client', 'name email');
+    notifyNewOrder(order);
     return res.status(201).json({ order });
   } catch (err) {
     return next(err);

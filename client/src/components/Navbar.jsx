@@ -1,22 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
+import ThemeToggle from './ThemeToggle.jsx';
+import NotificationBell from './NotificationBell.jsx';
 
 export default function Navbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
-  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || 'dark');
 
-  function handleLogout() {
-    logout();
+  async function handleLogout() {
+    await logout();
     navigate('/login');
-  }
-
-  function toggleTheme() {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    document.documentElement.dataset.theme = nextTheme;
-    localStorage.setItem('editdesk_theme', nextTheme);
-    setTheme(nextTheme);
   }
 
   return (
@@ -26,15 +20,8 @@ export default function Navbar() {
         <span className="brand-name">EditDesk</span>
       </Link>
       <nav className="nav-links">
-        <button
-          type="button"
-          className="theme-toggle"
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
-          title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
-        >
-          {theme === 'dark' ? '☀️' : '🌙'}
-        </button>
+        <ThemeToggle />
+        <NotificationBell />
         {user ? (
           <>
             {user.role === 'admin' ? (
