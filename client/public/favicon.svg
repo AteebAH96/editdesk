@@ -1,12 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="bg" x1="8" y1="6" x2="56" y2="60" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#9bbfe3"/>
-      <stop offset="1" stop-color="#426a9c"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="15" fill="#111b29"/>
-  <rect x="4" y="4" width="56" height="56" rx="12" fill="url(#bg)"/>
-  <path d="M13 18h21v7H21v4h12v7H21v5h13v7H13V18Z" fill="#fff"/>
-  <path fill-rule="evenodd" d="M38 18h8c8.5 0 13 5.1 13 14s-4.5 16-13 16h-8V18Zm8 7v16h.5c3.2 0 4.8-2.9 4.8-9s-1.6-7-4.8-7H46Z" fill="#fff"/>
+  <rect width="64" height="64" rx="14" fill="#426a9c"/>
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
+  <text x="32" y="43" font-family="Arial, Helvetica, sans-serif" font-weight="800" font-size="28" letter-spacing="1" fill="#ffffff" text-anchor="middle">ED</text>
 </svg>
