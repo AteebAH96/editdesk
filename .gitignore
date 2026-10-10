@@ -1,0 +1,15 @@
+node_modules/
+.npm-cache/
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+coverage/
+# Unrelated local project present in this workspace; never deploy it with EditDesk.
+coucou/
+dist/
+*.log
+.DS_Store
